@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>MembersOnly</title>
+    <title><%= full_title(yield(:title)) %></title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,6 +9,11 @@
   </head>
 
   <body>
+      <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= key %> : <%= value %></div>
+      <% end %>
+
     <%= yield %>
+    <%= debug(params) if Rails.env.development? %>
   </body>
 </html>

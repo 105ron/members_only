@@ -1,0 +1,14 @@
+<% provide(:title, "Login") %>
+
+<h3>Login to Get members benefits</h3>
+
+<%= form_for(:session, url: login_path) do |f| %>
+
+      <%= f.label :email %><br>
+      <%= f.email_field :email %><br>
+
+      <%= f.label :password %><br>
+      <%= f.password_field :password %><br>
+
+      <%= f.submit "Log in" %>
+    <% end %>
