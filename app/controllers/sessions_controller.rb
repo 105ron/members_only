@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:session][:email].downcase)
     if user && user.authenticate(params[:session][:password])
       sign_in(user)
-      redirect_to user
+      redirect_to posts_url
     else
       flash.now[:Warning] = 'Invalid email/password combination' # Not quite right!
       render 'new'
@@ -16,7 +16,8 @@ class SessionsController < ApplicationController
 
   def destroy
     sign_out
-    redirect_to login_url
+    redirect_to posts_url
   end
+
 
 end

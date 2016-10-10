@@ -9,6 +9,12 @@
   </head>
 
   <body>
+    <% if logged_in? %>
+      <%= link_to "Log out", logout_path, method: "delete" %>
+      <%= link_to "New post", new_post_path  %>
+    <% else %>
+      <%= link_to "Login",    login_path %>
+    <% end %>
       <% flash.each do |key, value| %>
         <div class="alert alert-<%= key %>"><%= key %> : <%= value %></div>
       <% end %>

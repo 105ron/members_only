@@ -1,0 +1,10 @@
+<%= provide(:title, "Posts Index") %>
+<% @post.each do |post| %>
+    <li><b>
+    	<% user = User.find(post.user_id) %>
+    	<%=logged_in? ? user.name : "anonymous" %>
+    </b></li>
+    <li>
+      <%= post.content  %>
+    </li><br><br>
+  <% end %>
